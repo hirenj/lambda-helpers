@@ -1,4 +1,5 @@
-"use strict";
+'use strict';
+/*jshint esversion: 6, node:true */
 
 const https = require('https');
 

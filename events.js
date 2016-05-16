@@ -1,3 +1,6 @@
+'use strict';
+/*jshint esversion: 6, node:true */
+
 var AWS = require('./aws-promise');
 
 var get_rule_state = function(event) {
@@ -6,7 +9,7 @@ var get_rule_state = function(event) {
   var rule_enabled = false;
 
   return cloudevents.listRules({NamePrefix:event}).promise().then(function(result) {
-    if (result.data.Rules.length == 0) {
+    if (result.data.Rules.length === 0) {
       new_rule = true;
     }
     result.Rules.forEach(function(rule) {

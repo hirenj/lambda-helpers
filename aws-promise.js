@@ -1,3 +1,6 @@
+'use strict';
+/*jshint esversion: 6, node:true */
+
 var AWS = require('aws-sdk');
 
 AWS.config.update({region: 'us-east-1'});
