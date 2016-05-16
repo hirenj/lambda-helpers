@@ -9,7 +9,7 @@ var get_rule_state = function(event) {
     if (result.data.Rules.length == 0) {
       new_rule = true;
     }
-    result.data.Rules.forEach(function(rule) {
+    result.Rules.forEach(function(rule) {
       rule_enabled = rule_enabled || (rule.State !== 'DISABLED');
     });
   }).then(function() {
