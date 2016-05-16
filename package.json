@@ -1,0 +1,14 @@
+{
+  "name": "lambda-helpers",
+  "version": "0.0.1",
+  "description": "Collection of helpers for runing inside lambda environments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "aws-sdk": "^2.3.11"
+  }
+}
