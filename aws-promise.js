@@ -1,5 +1,7 @@
 var AWS = require('aws-sdk');
 
+AWS.config.update({region: 'us-east-1'});
+
 var promisify = function(aws) {
   aws.Request.prototype.promise = function() {
     return new Promise(function(accept, reject) {
@@ -7,7 +9,7 @@ var promisify = function(aws) {
         if (response.error) {
           reject(response.error);
         } else {
-          accept(response);
+          accept(response.data);
         }
       });
       this.send();
