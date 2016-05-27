@@ -5,6 +5,9 @@ const https = require('https');
 
 exports.AWS = require('./aws-promise');
 exports.events = require('./events');
+exports.queue = require('./queue');
+exports.secrets = require('./secrets');
+exports.sns = require('./snish');
 
 exports.get_file = function(url) {
 	return new Promise(function(resolve,reject) {
