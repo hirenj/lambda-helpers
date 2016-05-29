@@ -44,7 +44,7 @@ var getEncryptedSecret = function getEncryptedSecret() {
     encryptedSecret.CiphertextBlob = new Buffer(encryptedSecret.CiphertextBlob, 'base64');
     return kms.decrypt(encryptedSecret).promise();
   }).then(function(data) {
-    var decryptedSecret = data.data.Plaintext.toString();
+    var decryptedSecret = data.Plaintext.toString();
     return decryptedSecret;
   });
 };
