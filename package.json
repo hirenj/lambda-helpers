@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "aws-sdk": "^2.3.11",
+    "aws-sdk": "^2.4.6",
     "jshint": "^2.9.2",
     "precommit-hook": "^3.0.0"
   },
