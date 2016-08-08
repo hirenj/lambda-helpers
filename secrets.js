@@ -27,13 +27,13 @@ var getSecretS3 = function getSecretS3(bucket) {
   });
 };
 
-var getEncryptedSecret = function getEncryptedSecret() {
+var getEncryptedSecret = function getEncryptedSecret(bucket) {
   var kms = new AWS.KMS();
 
   var secretPath = './creds.kms.json.encrypted';
   return getSecretKmsLocal(secretPath).catch(function() {
     console.log('No bundled KMS credentials, checking on S3');
-    return getSecretS3('test-gator');
+    return getSecretS3(bucket);
   }).then(function(encryptedSecret) {
     if ( encryptedSecret.store !== 'kms') {
       throw new Error('Not a kms encrypted secret');
@@ -63,9 +63,9 @@ var readLocalSecret = function readLocalSecret() {
 
 exports.use_kms = true;
 
-exports.getSecret = function getSecret() {
+exports.getSecret = function getSecret(bucket) {
 	if ( exports.use_kms ) {
-		return getEncryptedSecret();
+		return getEncryptedSecret(bucket);
 	}
 	return readLocalSecret();
 };
