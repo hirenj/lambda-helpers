@@ -3,8 +3,6 @@
 
 var AWS = require('aws-sdk');
 
-AWS.config.update({region: 'us-east-1'});
-
 var promisify = function(aws) {
   aws.Request.prototype.promise = function() {
     return new Promise(function(accept, reject) {
@@ -21,5 +19,9 @@ var promisify = function(aws) {
 };
 
 promisify(AWS);
+
+AWS.setRegion = function(region) {
+  AWS.config.update({region: region });
+};
 
 module.exports = AWS;
