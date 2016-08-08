@@ -13,7 +13,8 @@
   "devDependencies": {
     "aws-sdk": "^2.4.6",
     "jshint": "^2.9.2",
-    "precommit-hook": "^3.0.0"
+    "precommit-hook": "^3.0.0",
+    "keytar" : "^3.0.2"
   },
   "pre-commit": [
     "lint"
