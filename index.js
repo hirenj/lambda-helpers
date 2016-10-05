@@ -27,3 +27,11 @@ exports.get_file = function(url) {
 		});
 	});
 };
+
+exports.lambda_promise = function(lambda) {
+	return function(event) {
+		return new Promise(function(resolve) {
+			lambda(event,{'succeed' : resolve });
+		});
+	};
+};
