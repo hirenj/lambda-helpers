@@ -8,13 +8,9 @@ var get_rule_state = function(event) {
   var new_rule = false;
   var rule_enabled = false;
 
-  return cloudevents.listRules({NamePrefix:event}).promise().then(function(result) {
-    if (result.Rules.length === 0) {
-      new_rule = true;
-    }
-    result.Rules.forEach(function(rule) {
-      rule_enabled = rule_enabled || (rule.State !== 'DISABLED');
-    });
+  return cloudevents.describeRule({Name:event}).promise().then(function(result) {
+    new_rule = false;
+    rule_enabled = rule_enabled || (result.State !== 'DISABLED');
   }).then(function() {
   	return {'new_rule' : new_rule, 'rule_enabled' : rule_enabled };
   });
