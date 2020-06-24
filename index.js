@@ -8,9 +8,6 @@ exports.events = require('./events');
 exports.queue = require('./queue').queue;
 exports.secrets = require('./secrets');
 exports.sns = require('./snish');
-exports.getKmish = function() {
-	return require('./kmish');
-};
 
 exports.get_file = function(url) {
 	return new Promise(function(resolve,reject) {
