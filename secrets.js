@@ -50,15 +50,7 @@ var getEncryptedSecret = function getEncryptedSecret(bucket) {
 };
 
 var readLocalSecret = function readLocalSecret() {
-  var encryptedSecret = JSON.parse(fs.readFileSync('./creds.kmish.json.encrypted'));
-  if ( encryptedSecret.store !== 'kmish') {
-    throw new Error('Not a kmish encrypted secret');
-  }
-  var kmish = require('./kmish');
-  return kmish.decrypt(encryptedSecret).promise().then(function(data) {
-    var decryptedSecret = data.Plaintext.toString();
-    return decryptedSecret;
-  });
+  throw new Error('Unsupported');
 };
 
 exports.use_kms = true;
